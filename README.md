@@ -34,5 +34,10 @@ The validation test in `src/data/themes.test.js` enforces this.
 
 ## Deploy
 
-Configured for Netlify via `netlify.toml`. Any static host works — build command
-`npm run build`, publish directory `dist`.
+Deployed on Vercel at `palette.heykals.com` (framework preset: Vite; build command
+`npm run build`, output directory `dist`). `vercel.json` rewrites all paths to
+`/index.html` so deep links such as `/theme/<slug>` survive a refresh.
+
+Any static host works. On hosts that don't read `vercel.json`, reproduce the SPA
+fallback the platform's own way — for example `assets.not_found_handling:
+"single-page-application"` on Cloudflare Workers, or a catch-all rewrite on Netlify.
